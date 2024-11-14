@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MultiController;
 
 Route::get('/', function () {
     return 'hole mundo';
@@ -20,3 +21,7 @@ Route::get('middle', function () {
 })->middleware('admin');
 
 Route::get('/hiuser', UserController::class);
+
+Route::get('/addtxt/{txt}/{extraMessage?}', [MultiController::class, 'addLogTxt']);
+
+Route::get('/addtxtqueue/{txt}', [MultiController::class, 'addLogTxtViaQueue']);
