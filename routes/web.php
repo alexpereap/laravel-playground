@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return 'hole mundo';
@@ -17,3 +18,5 @@ Route::get('nombre/{name?}', function (?string $name = 'Alex') {
 Route::get('middle', function () {
     echo "middleware";
 })->middleware('admin');
+
+Route::get('/hiuser', UserController::class);
